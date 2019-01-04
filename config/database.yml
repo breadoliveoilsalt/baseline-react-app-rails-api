@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: precedent_production
-  username: precedent
+  username: <%= ENV['PRECEDENT_DATABASE_USERNAME'] %>
   password: <%= ENV['PRECEDENT_DATABASE_PASSWORD'] %>
