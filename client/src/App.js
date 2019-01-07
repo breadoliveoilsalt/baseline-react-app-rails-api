@@ -15,14 +15,16 @@ class App extends Component {
 
   getAPIMessage = () => {
     fetch(`/api/getMessage`)
-    .then(response => conole.log(response)
+    .then(response => console.log(response)
     )
   }
 
-  
+
   render() {
     return (
-
+      <div>
+        Something.
+      </div>
     )
   }
 }
