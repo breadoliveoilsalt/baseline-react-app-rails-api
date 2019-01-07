@@ -1,0 +1,2 @@
+class TestMessageController < ApplicationController
+end
