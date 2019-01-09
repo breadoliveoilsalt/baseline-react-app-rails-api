@@ -6,7 +6,7 @@ class App extends Component {
 
   constructor() {
     super()
-    this.message = ""
+    this.message = "Sup."
   }
 
   componentDidMount() {
@@ -17,8 +17,7 @@ class App extends Component {
     fetch(`/api/getMessage`)
     .then(response => response.json())
     .then(response => console.log(response))
-    // this.setState((state) => {return {message: response}}))
-  }
+    }
 
   render() {
     return (
