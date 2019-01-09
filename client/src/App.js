@@ -21,7 +21,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        Something.
+        <p> Something.</p>
+        <p> Message from API: {this.message} </p>
       </div>
     )
   }
