@@ -15,7 +15,9 @@ class App extends Component {
 
   getAPIMessage = () => {
     fetch(`/api/getMessage`)
+    .then(response => response.json())
     .then(response => console.log(response))
+    // this.setState((state) => {return {message: response}}))
   }
 
   render() {
