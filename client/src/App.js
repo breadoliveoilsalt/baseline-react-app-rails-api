@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <div>
         <p> Something.</p>
-        <p> Message from API: {this.message} </p>
+        <p> {this.message} </p>
       </div>
     )
   }
