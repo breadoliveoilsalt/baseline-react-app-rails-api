@@ -1,9 +1,6 @@
 import { applyMiddleware, createStore } from 'redux'
 import thunkMiddleware from 'redux-thunk'
-// Might need something like this if Heroku gives you problems in the future:
-// import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction'
-
-import { composeWithDevTools } from 'redux-devtools-extension'
+import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction'
 import monitorReducersEnhancer from './enhancers/monitorReducer'
 import loggerMiddleware from './middleware/logger'
 
