@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { addAnotherOne } from '../actions/testActions'
+
 class TestContainer extends Component {
 
   render() {
     return(
       <div>
-        {this.props.numberList}
+        List of Ones: {this.props.numberList}
+        <button onClick={this.props.addAnotherOne}> Click to Add Another 1 ! </button>
       </div>
     )
   }
@@ -20,12 +23,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      // removeError: () => dispatch(removeError()),
+      addAnotherOne: () => dispatch(addAnotherOne())
+        // Example using arguments:
       // postUpdate: (id, data) => dispatch(postUpdate(id, data)),
-      // loadCurrentArtObject: (object) => dispatch(loadCurrentArtObject(object)),
-      // addToSessionHistory: (object) => dispatch(addToSessionHistory(object)),
-      // get30DayHistory: () => dispatch(get30DayHistory()),
-      // resetExtendedHistory: () => dispatch(resetExtendedHistory())
    }
 }
 
