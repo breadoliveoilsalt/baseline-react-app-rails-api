@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import fetch from 'isomorphic-fetch'
+import TestContainer from './components_container/testContainer'
 
 class App extends Component {
 
@@ -23,7 +24,8 @@ class App extends Component {
     return (
       <div>
         <p> Something.</p>
-        <p> {this.message} </p>
+        <p> Message: {this.message} </p>
+        < TestContainer/>
       </div>
     )
   }
