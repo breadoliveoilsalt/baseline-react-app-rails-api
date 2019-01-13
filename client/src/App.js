@@ -1,32 +1,32 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 import fetch from 'isomorphic-fetch'
-import TestContainer from './components_container/testContainer'
+
+// import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom"
+
+import TestComponent from './components_container/testComponent'
+import AboutTestComponent from './components_presentational/aboutTestComponent'
 
 class App extends Component {
 
-  constructor() {
-    super()
-    this.message = "Sup."
-  }
-
-  componentDidMount() {
-    this.getAPIMessage()
-  }
-
-  getAPIMessage = () => {
-    fetch(`/api/getMessage`)
-    .then(response => response.json())
-    .then(response => console.log(response))
-    }
-
   render() {
     return (
-      <div>
-        <p> Something.</p>
-        <p> Message: {this.message} </p>
-        < TestContainer/>
-      </div>
+      <BrowserRouter>
+        <div>
+
+          <ul>
+            <li> <Link to="/"> Home </Link> </li>
+            <li> <Link to="/about"> About </Link> </li>
+          </ul>
+
+          <Switch>
+            <Route path="/" exact component={TestComponent}/>
+            <Route path="/about" exact component={AboutTestComponent} />
+          </Switch>
+
+        </div>
+      </BrowserRouter>
     )
   }
 }

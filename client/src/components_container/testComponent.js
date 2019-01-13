@@ -3,13 +3,24 @@ import { connect } from 'react-redux'
 
 import { addAnotherOne } from '../actions/testActions'
 
-class TestContainer extends Component {
+class TestComponent extends Component {
+
+  componentDidMount() {
+    this.getAPIMessage()
+  }
+
+  getAPIMessage = () => {
+    fetch(`/api/getMessage`)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    }
+
 
   render() {
     return(
       <div>
-        List of Ones: {this.props.numberList}
-        <button onClick={this.props.addAnotherOne}> Click to Add Another 1 ! </button>
+        <p> List of Ones: {this.props.numberList} </p>
+        <p> <button onClick={this.props.addAnotherOne}> Click to Add Another 1 ! </button> </p>
       </div>
     )
   }
@@ -29,4 +40,4 @@ const mapDispatchToProps = (dispatch) => {
    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TestContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(TestComponent)
