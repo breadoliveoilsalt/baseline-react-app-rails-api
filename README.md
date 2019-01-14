@@ -17,3 +17,7 @@ There are a few components, reducers, routes, etc. labeled "test"-something unde
 - client/src/components_container
 - client/src/components_presentational
 - client/src/App.js
+
+The preparation for deploying the app to Heroku generally followed the instructions [here](https://blog.heroku.com/a-rock-solid-modern-web-stack), but without adding Devise and ActiveAdmin.
+
+  
