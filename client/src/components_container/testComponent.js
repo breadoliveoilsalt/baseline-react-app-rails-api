@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import fetch from 'isomorphic-fetch'
 
 import { addAnotherOne } from '../actions/testActions'
 
