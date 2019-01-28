@@ -32,6 +32,9 @@ To get this baseline up and running:
 
 [UP TO: you can now run rake start from the parent directory to see that app runs.  Need to have a way to check that DB works though!]
 
+- Will have to run rake db:setup
+- Then set up migrations and run rake db:migrate.
+- Or test that DB works but running rake db:migrate and rake db:seed
 4) Git-ignored files you may want to manually add:
 
 

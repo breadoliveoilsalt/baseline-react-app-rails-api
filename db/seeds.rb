@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-TestModel.new({db_message: "You pulled a model from the DB - I'm Number 1"})
-TestModel.new({db_message: "You pulled a model from the DB - I'm Number 2"})
-TestModel.new({db_message: "You pulled a model from the DB - I'm Number 3"})
-TestModel.new({db_message: "You pulled a model from the DB - I'm Number 4"})
+TestModel.create({db_message: "You pulled a model from the DB - I'm Number 1"})
+TestModel.create({db_message: "You pulled a model from the DB - I'm Number 2"})
+TestModel.create({db_message: "You pulled a model from the DB - I'm Number 3"})
+TestModel.create({db_message: "You pulled a model from the DB - I'm Number 4"})
