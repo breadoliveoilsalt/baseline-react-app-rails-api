@@ -16,15 +16,18 @@ class TestComponent extends Component {
     .then(response => console.log(response))
     }
 
-
   render() {
     return(
-      <div>
+      <div style={divStyle}>
         <p> List of Ones: {this.props.numberList} </p>
         <p> <button onClick={this.props.addAnotherOne}> Click to Add Another 1 ! </button> </p>
       </div>
     )
   }
+}
+
+const divStyle = {
+  margin:'20px'
 }
 
 const mapStateToProps = (state) => {

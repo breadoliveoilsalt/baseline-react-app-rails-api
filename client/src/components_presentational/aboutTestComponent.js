@@ -2,7 +2,7 @@ import React from 'react'
 
 const AboutTestComponent = () => {
   return(
-    <div>
+    <div style={{margin:'20px'}}>
       This is the About Page.
     </div>
   )
