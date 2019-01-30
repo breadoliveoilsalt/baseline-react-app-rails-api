@@ -2,7 +2,7 @@
 
 1/29/19
 
-This is a baseline I set up for a React app with a Redux state, React Router, and a Rails API, intended for deployment to Heroku. The intention is to use clones of this as a launching pad for future React apps. In other words, this is a barebones working app with a "test" React component, Redux state, Router, Rails controller, and Rails model -- all of which are there simply to show that everything is all hooked up and working together.
+This is a baseline I set up for a React app with a Redux state, React Router, and a Rails API, intended for deployment to Heroku. The intention is to use clones of this as a launching pad for future React apps. In other words, this is a barebones working app with a "test" React component, Redux state, Router, Rails controller, and Rails model -- all of which are there simply to show that everything is all hooked up and working together. Hope this it saves you some time if you are looking for a React/Rails playground with which to kick things some ideas.  The instructions below are intended to be checks that you can run to make sure everything is working properly before you flush out your app.  
 
 I found very particularly helpful advice and guidance at these sites:
   - https://www.fullstackreact.com/articles/how-to-get-create-react-app-to-work-with-your-rails-api/
@@ -16,7 +16,7 @@ Please note:
 
   - The app does not implement Devise or ActiveAdmin.
 
-To get this baseline app up and running:
+To get this baseline app up and running and check that things are working properly:
 
 1) Fork and clone the repository.
 
@@ -44,30 +44,25 @@ To get this baseline app up and running:
 
   - From the root directory, run `rake start`.  This will launch both the React front end and Rails API back end.
   - Head to localhost:3000. You should see something very simple: two links and a button that lets you add 1.  If you click the links and they work, React Router is up and running. If you click it the button and more 1s appear, Redux is up and running.
+  - To test if the Rails API is up and running, a fetch request is made to the Rails API every time the home page loads. To get confirmation that things are working ok with the Rails API, ActiveRecord, etc., make sure you are on the home page.  Open up your developer console.  Hit refresh.  If everything is ok, you should see a log in the console that says:
 
-7) You might want to check things are working ok with Heroku.
-
-7) Remove what you don't want.
-
-  - There
-[UP TO: you can now run rake start from the parent directory to see that app runs.  Need to have a way to check that DB works though!]
-- When the home page loads, it makes a fetch request to the Rails API to test that the front end can connect with the API and that the DB is hooked up.  The Rails API has a TestController (which this automatic fetch request pings) and a TestModel (which is populated with some seed data - simple strings.)
-
-- Will have to run rake db:setup.  This will set up the Postgres DB and kick off a migration with a TestModel, and also provide the seed data.
-- If everything goes well and the DB and Model is connected, go to your browser's console and refresh the page.  You should see the following console log:
-
-If you don't see this, you'll see a server error.  
-
-- Make sure to run heroku command to seed database
-X Then set up migrations and run rake db:migrate.
-X Or test that DB works but running rake db:migrate and rake db:seed
-4) Git-ignored files you may want to manually add:
+    `"You made it to the Rails API Test Controller and the database is connected.  TestModel #1 says: 'You pulled a model from the DB - I'm Number 1''"`
 
 
+7) You might want to check things are working ok with Heroku. To do so, run the following commands from your root directory:
 
-After forking and cloning the repository, and then cd'ing into the root directory, the command `rake start` will launch the app in development mode.
+  - `heroku apps:create`
+  - `heroku buildpacks:add heroku/nodejs --index 1`
+  - `heroku buildpacks:add heroku/ruby --index 2`
+  - `git add .`
+  - `git commit -vam "Initial commit"`
+  - `git push heroku master`
+  - `heroku run rake db:seed`
+  - `heroku open`
 
-BUT the app depends on a Postgres database (in order to work with Heroku), so before trying to launch a development server, make sure you have Postgres running.  As of the current date, it seems the best way to get Postgres running is to download and run the Postgres stand-alone app: https://postgresapp.com/.  Then run `rake db:setup` in the terminal from the parent directory. After that, running `rake start` should get the React app running, with a few test routes handled by React Router, and a test message viewable in the console that the React app has connected with the Rails API.
+If you see the app on the Heroku site, then everything is working ok.
+
+9) Remove what you don't want.
 
 There are a number of components, reducers, routes, etc. labeled "test"-something. Feel free to keep them to make sure everything is hooked up, but you'll probably want to delete them at some point.  These "test" things appear in
 
@@ -79,5 +74,4 @@ There are a number of components, reducers, routes, etc. labeled "test"-somethin
 - client/src/components_container -> testComponent.js
 - client/src/components_presentational -> aboutTestComponent.js
 - client/src/App.js -> see generally
-
-The preparation for deploying the app to Heroku generally followed the instructions [here](https://blog.heroku.com/a-rock-solid-modern-web-stack), but without adding Devise and ActiveAdmin.
+- db/migrate -> see generally
