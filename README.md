@@ -4,7 +4,7 @@
 
 This is a baseline I set up for a React app with a Redux state, React Router, and a Rails API, intended for deployment to Heroku. The intention is to use clones of this as a launching pad for future React apps. In other words, this is a barebones working app with a "test" React component, Redux state, Router, Rails controller, and Rails model -- all of which are there simply to show that everything is all hooked up and working together. Hope this it saves you some time if you are looking for a React/Rails playground for kicking around ideas.  The instructions below are intended to be checks that you can run to make sure everything is working properly before you flush out your app.  
 
-I found very particularly helpful advice and guidance at these sites:
+I found particularly helpful advice and guidance at these sites:
   - https://www.fullstackreact.com/articles/how-to-get-create-react-app-to-work-with-your-rails-api/
   - https://blog.heroku.com/a-rock-solid-modern-web-stack
 
